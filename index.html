@@ -3,451 +3,101 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mercedes-Benz Luxury Showroom</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
-
+<title>Mercedes-Benz Luxury</title>
 <style>
     * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        font-family: 'Montserrat', sans-serif;
-        scroll-behavior: smooth;
+        font-family: sans-serif;
     }
-
     body {
         background: #000;
         color: white;
-        overflow-x: hidden;
     }
-
-    /* NAVBAR */
+    /* НАВІГАЦІЯ */
     nav {
         position: fixed;
         width: 100%;
         top: 0;
-        left: 0;
+        background: rgba(0,0,0,0.9);
         display: flex;
         justify-content: space-between;
-        align-items: center;
-        padding: 25px 80px;
-        z-index: 1000;
-        background: rgba(0, 0, 0, 0.7);
-        backdrop-filter: blur(10px);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 20px 40px;
+        z-index: 100;
+        border-bottom: 1px solid #222;
     }
+    .logo { font-size: 24px; font-weight: bold; }
+    nav ul { display: flex; list-style: none; gap: 20px; }
+    nav ul li a { color: white; text-decoration: none; }
 
-    .logo {
-        font-size: 28px;
-        font-weight: 700;
-        letter-spacing: 2px;
-    }
-
-    nav ul {
-        display: flex;
-        list-style: none;
-        gap: 40px;
-    }
-
-    nav ul li a {
-        text-decoration: none;
-        color: white;
-        font-weight: 400;
-        transition: 0.3s;
-    }
-
-    nav ul li a:hover {
-        color: #999;
-    }
-
-    /* HERO */
+    /* ГОЛОВНИЙ БЛОК */
     .hero {
-        height: 100vh;
-        background: url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2070') center/cover;
-        display: flex;
-        align-items: center;
-        padding-left: 100px;
-        position: relative;
-    }
-
-    .hero::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.6);
-    }
-
-    .hero-content {
-        position: relative;
-        z-index: 2;
-        max-width: 700px;
-    }
-
-    .hero h1 {
-        font-size: 72px;
-        margin-bottom: 20px;
-        line-height: 1.1;
-        font-weight: 700;
-    }
-
-    .hero p {
-        font-size: 20px;
-        color: #ccc;
-        margin-bottom: 40px;
-        line-height: 1.6;
-    }
-
-    .btn {
-        display: inline-block;
-        padding: 18px 40px;
-        background: white;
-        color: black;
-        text-decoration: none;
-        font-weight: 600;
-        transition: 0.3s;
-        border: none;
-        cursor: pointer;
-    }
-
-    .btn:hover {
-        background: #999;
-    }
-
-    /* SECTIONS GENERAL */
-    .section {
-        padding: 120px 80px;
-        border-bottom: 1px solid #111;
-    }
-
-    .section-title {
-        font-size: 48px;
-        margin-bottom: 60px;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-    }
-
-    /* CARS GRID */
-    .cars {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-        gap: 40px;
-    }
-
-    .car-card {
+        height: 60vh;
         background: #111;
-        border-radius: 12px;
-        overflow: hidden;
-        transition: 0.4s ease;
-        cursor: pointer;
-        border: 1px solid #222;
-    }
-
-    .car-card:hover {
-        transform: translateY(-10px);
-        border-color: #555;
-    }
-
-    .car-card img {
-        width: 100%;
-        height: 240px;
-        object-fit: cover;
-    }
-
-    .car-info {
-        padding: 30px;
-    }
-
-    .car-info h3 {
-        margin-bottom: 12px;
-        font-size: 26px;
-    }
-
-    .car-info p {
-        color: #aaa;
-        margin-bottom: 25px;
-        font-size: 15px;
-        line-height: 1.5;
-    }
-
-    .car-bottom {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .price {
-        font-size: 22px;
-        font-weight: 700;
-        color: #fff;
-    }
-
-    .more-btn {
-        color: #fff;
-        text-decoration: underline;
-        font-size: 14px;
-        font-weight: 600;
-    }
-
-    /* ABOUT SECTION */
-    .about-wrapper {
-        display: flex;
-        align-items: center;
-        gap: 80px;
-    }
-
-    .about-img {
-        flex: 1;
-        min-width: 300px;
-    }
-
-    .about-img img {
-        width: 100%;
-        border-radius: 12px;
-        box-shadow: 0 20px 40px rgba(255,255,255,0.05);
-    }
-
-    .about-text {
-        flex: 1;
-    }
-
-    .about-text p {
-        color: #bbb;
-        line-height: 1.9;
-        font-size: 16px;
-        margin-bottom: 20px;
-    }
-
-    .features-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 30px;
-        margin-top: 40px;
-    }
-
-    .feature-item h4 {
-        font-size: 20px;
-        margin-bottom: 10px;
-        color: #fff;
-    }
-
-    .feature-item p {
-        font-size: 14px;
-        color: #888;
-        line-height: 1.5;
-    }
-
-    /* CONTACTS SECTION */
-    .contacts-wrapper {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 60px;
-    }
-
-    .contact-info h3 {
-        font-size: 32px;
-        margin-bottom: 30px;
-    }
-
-    .info-block {
-        margin-bottom: 25px;
-    }
-
-    .info-block span {
-        display: block;
-        color: #666;
-        font-size: 12px;
-        text-transform: uppercase;
-        margin-bottom: 5px;
-        letter-spacing: 1px;
-    }
-
-    .info-block p {
-        font-size: 18px;
-        color: #fff;
-    }
-
-    .contact-form {
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+        margin-top: 60px;
+    }
+    .hero h1 { font-size: 50px; margin-bottom: 20px; }
+    .btn { padding: 12px 30px; background: white; color: black; text-decoration: none; font-weight: bold; cursor: pointer; border: none; }
+
+    /* СЕКЦІЇ */
+    .section { padding: 60px 40px; }
+    .section-title { font-size: 36px; margin-bottom: 40px; text-align: center; }
+
+    /* СІТКА АВТО */
+    .cars-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+    }
+    .car-card {
         background: #111;
-        padding: 40px;
-        border-radius: 12px;
-    }
-
-    .form-group input, .form-group textarea {
-        width: 100%;
-        padding: 15px;
-        background: #202020;
         border: 1px solid #333;
-        color: white;
-        font-size: 16px;
-        outline: none;
-        transition: 0.3s;
+        border-radius: 8px;
+        overflow: hidden;
+        cursor: pointer;
+        padding-bottom: 20px;
     }
+    .car-card img { width: 100%; height: 200px; object-fit: cover; background: #222; }
+    .car-info { padding: 20px; }
+    .car-info h3 { margin-bottom: 10px; font-size: 22px; }
+    .price { font-size: 18px; font-weight: bold; color: #aaa; }
 
-    .form-group input:focus, .form-group textarea:focus {
-        border-color: #fff;
-    }
+    /* ПРО НАС ТА КОНТАКТИ */
+    .text-block { max-width: 800px; margin: 0 auto; line-height: 1.6; font-size: 18px; }
+    .contacts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; max-width: 800px; margin: 0 auto; }
+    .contact-box { background: #111; padding: 20px; border-radius: 8px; }
 
-    /* MODAL WINDOWS */
+    /* МОДАЛЬНІ ВІКНА */
     .modal {
         position: fixed;
         inset: 0;
-        background: rgba(0, 0, 0, 0.9);
-        z-index: 2000;
+        background: rgba(0,0,0,0.85);
         display: none;
         justify-content: center;
         align-items: center;
+        z-index: 1000;
         padding: 20px;
-        backdrop-filter: blur(15px);
     }
-
     .modal-content {
-        background: #111;
-        max-width: 900px;
-        width: 100%;
-        max-height: 90vh;
-        overflow-y: auto;
-        border-radius: 16px;
-        position: relative;
-        border: 1px solid #333;
-    }
-
-    .close-modal {
-        position: absolute;
-        top: 20px;
-        right: 25px;
-        font-size: 35px;
-        cursor: pointer;
-        color: #fff;
-        z-index: 10;
-        transition: 0.3s;
-    }
-
-    .close-modal:hover {
-        color: #999;
-    }
-
-    .modal-hero-img {
-        width: 100%;
-        height: 400px;
-        object-fit: cover;
-    }
-
-    .modal-body {
-        padding: 40px;
-    }
-
-    .modal-body h2 {
-        font-size: 42px;
-        margin-bottom: 15px;
-    }
-
-    .modal-price {
-        font-size: 28px;
-        font-weight: 700;
-        margin-bottom: 30px;
-        color: #fff;
-    }
-
-    .modal-desc {
-        color: #ccc;
-        line-height: 1.8;
-        font-size: 16px;
-        margin-bottom: 40px;
-    }
-
-    .specs-table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-bottom: 40px;
-    }
-
-    .specs-table td {
-        padding: 15px 0;
-        border-bottom: 1px solid #222;
-        font-size: 16px;
-    }
-
-    .specs-table td:last-child {
-        text-align: right;
-        font-weight: 600;
-        color: #aaa;
-    }
-
-    /* PAYMENT MODAL */
-    .pay-modal-content {
         background: #161616;
-        max-width: 450px;
+        padding: 30px;
+        max-width: 500px;
         width: 100%;
-        padding: 40px;
-        border-radius: 16px;
-        border: 1px solid #333;
-        position: relative;
-    }
-
-    .pay-modal-content h3 {
-        font-size: 24px;
-        margin-bottom: 25px;
-        text-align: center;
-    }
-
-    .card-input-wrapper {
-        background: #222;
-        padding: 20px;
         border-radius: 8px;
-        margin-bottom: 20px;
+        position: relative;
         border: 1px solid #444;
     }
+    .close { position: absolute; top: 15px; right: 20px; font-size: 30px; cursor: pointer; }
+    .modal input { width: 100%; padding: 12px; margin: 10px 0; background: #222; border: 1px solid #444; color: white; }
 
-    .card-input-wrapper input {
-        width: 100%;
-        background: transparent;
-        border: none;
-        color: white;
-        font-size: 18px;
-        letter-spacing: 2px;
-        outline: none;
-        margin-bottom: 15px;
-    }
-
-    .card-row {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 15px;
-    }
-
-    .card-row input {
-        margin-bottom: 0;
-        font-size: 14px;
-    }
-
-    /* FOOTER */
-    footer {
-        padding: 40px;
-        text-align: center;
-        background: #050505;
-        color: #555;
-        border-top: 1px solid #111;
-        font-size: 14px;
-    }
-
-    /* RESPONSIVE */
-    @media(max-width:900px){
-        nav { padding: 20px 30px; }
-        nav ul { display: none; } /* Спрощення для мобільних */
-        .hero { padding: 40px; }
-        .hero h1 { font-size: 44px; }
-        .section { padding: 80px 30px; }
-        .about-wrapper, .contacts-wrapper { grid-template-columns: 1fr; flex-direction: column; gap: 40px; }
-        .features-grid { grid-template-columns: 1fr; }
-        .modal-hero-img { height: 250px; }
-        .modal-body { padding: 25px; }
-        .modal-body h2 { font-size: 30px; }
-    }
+    footer { text-align: center; padding: 40px; color: #555; background: #050505; }
 </style>
 </head>
 <body>
@@ -456,26 +106,149 @@
     <div class="logo">MERCEDES</div>
     <ul>
         <li><a href="#">Головна</a></li>
-        <li><a href="#cars-section">Автомобілі</a></li>
-        <li><a href="#about-section">Про нас</a></li>
-        <li><a href="#contacts-section">Контакти</a></li>
+        <li><a href="#catalog">Авто</a></li>
+        <li><a href="#about">Про нас</a></li>
+        <li><a href="#contacts">Контакти</a></li>
     </ul>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
-    <div class="hero-content">
-        <h1>The Best or Nothing</h1>
-        <p>Преміальні автомобілі нового покоління. Швидкість. Розкіш. Естетика бездоганності у кожній деталі.</p>
-        <a href="#cars-section" class="btn">Переглянути модельний ряд</a>
+    <h1>The Best or Nothing</h1>
+    <p style="margin-bottom: 30px; color: #aaa;">Преміальні автомобілі нового покоління.</p>
+    <a href="#catalog" class="btn">Дивитись авто</a>
+</section>
+
+<!-- КАТАЛОГ АВТО -->
+<section class="section" id="catalog">
+    <h2 class="section-title">Популярні моделі</h2>
+    <div class="cars-grid">
+        
+        <div class="car-card" onclick="openModal('Mercedes-AMG GT', '$185 000', 'Спортивний характер та максимальна потужність на треку.')">
+            <img src="https://unsplash.com">
+            <div class="car-info">
+                <h3>Mercedes-AMG GT</h3>
+                <p class="price">$185 000</p>
+            </div>
+        </div>
+
+        <div class="car-card" onclick="openModal('Mercedes S-Class', '$142 000', 'Еталон комфорту та безпеки серед преміальних седанів.')">
+            <img src="https://unsplash.com">
+            <div class="car-info">
+                <h3>Mercedes S-Class</h3>
+                <p class="price">$142 000</p>
+            </div>
+        </div>
+
+        <div class="car-card" onclick="openModal('Mercedes G-Class', '$220 000', 'Легендарний позашляховик із безкомпромісним характером.')">
+            <img src="https://unsplash.com">
+            <div class="car-info">
+                <h3>Mercedes G-Class</h3>
+                <p class="price">$220 000</p>
+            </div>
+        </div>
+
+        <div class="car-card" onclick="openModal('Mercedes C-Class Coupe', '$65 000', 'Динамічне та стильне міське купе.')">
+            <img src="https://unsplash.com">
+            <div class="car-info">
+                <h3>Mercedes C-Class Coupe</h3>
+                <p class="price">$65 000</p>
+            </div>
+        </div>
+
+        <div class="car-card" onclick="openModal('Mercedes EQS', '$115 000', 'Інноваційний повністю електричний флагман.')">
+            <img src="https://unsplash.com">
+            <div class="car-info">
+                <h3>Mercedes EQS</h3>
+                <p class="price">$115 000</p>
+            </div>
+        </div>
+
+        <div class="car-card" onclick="openModal('Mercedes GLE Coupe', '$98 000', 'Ідеальне поєднання кросовера та витонченого купе.')">
+            <img src="https://unsplash.com">
+            <div class="car-info">
+                <h3>Mercedes GLE Coupe</h3>
+                <p class="price">$98 000</p>
+            </div>
+        </div>
+
     </div>
 </section>
 
-<!-- CARS SECTION -->
-<section class="section" id="cars-section">
-    <h2 class="section-title">Доступні Моделі</h2>
-    <div class="cars" id="cars-container">
-        <!-- Картки генеруються за допомогою JavaScript динамічно -->
+<!-- ПРО НАС -->
+<section class="section" id="about" style="background: #0a0a0a;">
+    <h2 class="section-title">Про Нас</h2>
+    <div class="text-block">
+        <p style="margin-bottom: 20px;">Ласкаво просимо до нашого преміального шоуруму Mercedes-Benz. Ми пропонуємо повний спектр послуг із продажу, індивідуального замовлення та обслуговування автомобілів легендарного німецького бренду.</p>
+        <p>Наша мета — забезпечити бездоганний сервіс найвищого рівня для кожного клієнта. Обираючи нас, ви отримуєте офіційну гарантію, супровід персонального менеджера та доступ до лімітованих серій автомобілів.</p>
     </div>
 </section>
 
+<!-- КОНТАКТИ -->
+<section class="section" id="contacts">
+    <h2 class="section-title">Контакти</h2>
+    <div class="contacts-grid">
+        <div class="contact-box">
+            <h4>Адреса Шоуруму</h4>
+            <p style="color: #aaa; margin-top: 5px;">Київ, вул. Велика Васильківська, 100</p>
+        </div>
+        <div class="contact-box">
+            <h4>Телефон</h4>
+            <p style="color: #aaa; margin-top: 5px;">+380 (44) 555-32-32</p>
+        </div>
+        <div class="contact-box">
+            <h4>Графік роботи</h4>
+            <p style="color: #aaa; margin-top: 5px;">Пн - Сб: 09:00 - 20:00</p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    © 2026 Mercedes Luxury Showroom
+</footer>
+
+<!-- МОДАЛЬНЕ ВІКНО: ДЕТАЛІ + ОПЛАТА -->
+<div class="modal" id="carModal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2 id="m-title" style="margin-bottom: 10px;"></h2>
+        <div id="m-price" style="font-size: 20px; font-weight: bold; color: #fff; margin-bottom: 15px;"></div>
+        <p id="m-desc" style="color: #bbb; margin-bottom: 25px; font-size: 15px;"></p>
+        
+        <hr style="border-color: #333; margin-bottom: 20px;">
+        
+        <h3 style="font-size: 18px; margin-bottom: 10px;">Форма онлайн-бронювання</h3>
+        <p style="font-size: 12px; color: #888; margin-bottom: 10px;">Для фіксації замовлення внесіть гарантійний платіж $5 000</p>
+        
+        <form onsubmit="event.preventDefault(); alert('Оплата успішна! Автомобіль заброньовано.'); closeModal();">
+            <input type="text" placeholder="Номер картки (16 цифр)" maxlength="16" required>
+            <div style="display: flex; gap: 10px;">
+                <input type="text" placeholder="ММ/РР" maxlength="5" required>
+                <input type="password" placeholder="CVV" maxlength="3" required>
+            </div>
+            <button type="submit" class="btn" style="width: 100%; margin-top: 10px;">Оплатити $5 000</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    function openModal(title, price, desc) {
+        document.getElementById('m-title').innerText = title;
+        document.getElementById('m-price').innerText = price;
+        document.getElementById('m-desc').innerText = desc;
+        document.getElementById('carModal').style.display = 'flex';
+    }
+
+    function closeModal() {
+        document.getElementById('carModal').style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+        let modal = document.getElementById('carModal');
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    }
+</script>
+
+</body>
+</html>
