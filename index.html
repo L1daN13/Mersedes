@@ -4,250 +4,143 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mercedes-Benz Luxury</title>
+
 <style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: sans-serif;
-    }
-    body {
-        background: #000;
-        color: white;
-    }
-    /* НАВІГАЦІЯ */
-    nav {
-        position: fixed;
-        width: 100%;
-        top: 0;
-        background: rgba(0,0,0,0.9);
-        display: flex;
-        justify-content: space-between;
-        padding: 20px 40px;
-        z-index: 100;
-        border-bottom: 1px solid #222;
-    }
-    .logo { font-size: 24px; font-weight: bold; }
-    nav ul { display: flex; list-style: none; gap: 20px; }
-    nav ul li a { color: white; text-decoration: none; }
+*{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif;}
+body{background:#000;color:#fff;}
 
-    /* ГОЛОВНИЙ БЛОК */
-    .hero {
-        height: 60vh;
-        background: #111;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        padding: 20px;
-        margin-top: 60px;
-    }
-    .hero h1 { font-size: 50px; margin-bottom: 20px; }
-    .btn { padding: 12px 30px; background: white; color: black; text-decoration: none; font-weight: bold; cursor: pointer; border: none; }
+nav{
+position:fixed;top:0;width:100%;
+background:#111;padding:20px 40px;
+display:flex;justify-content:space-between;
+z-index:100;border-bottom:1px solid #333;
+}
+nav ul{display:flex;gap:20px;list-style:none;}
+nav a{color:#fff;text-decoration:none}
 
-    /* СЕКЦІЇ */
-    .section { padding: 60px 40px; }
-    .section-title { font-size: 36px; margin-bottom: 40px; text-align: center; }
+.hero{
+height:60vh;margin-top:80px;
+display:flex;flex-direction:column;
+justify-content:center;align-items:center;
+text-align:center;
+}
 
-    /* СІТКА АВТО */
-    .cars-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 30px;
-    }
-    .car-card {
-        background: #111;
-        border: 1px solid #333;
-        border-radius: 8px;
-        overflow: hidden;
-        cursor: pointer;
-        padding-bottom: 20px;
-    }
-    .car-card img { width: 100%; height: 200px; object-fit: cover; background: #222; }
-    .car-info { padding: 20px; }
-    .car-info h3 { margin-bottom: 10px; font-size: 22px; }
-    .price { font-size: 18px; font-weight: bold; color: #aaa; }
+.btn{
+padding:12px 25px;background:#fff;color:#000;
+text-decoration:none;font-weight:bold;
+cursor:pointer;
+}
 
-    /* ПРО НАС ТА КОНТАКТИ */
-    .text-block { max-width: 800px; margin: 0 auto; line-height: 1.6; font-size: 18px; }
-    .contacts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; max-width: 800px; margin: 0 auto; }
-    .contact-box { background: #111; padding: 20px; border-radius: 8px; }
+.section{padding:80px 40px;}
 
-    /* МОДАЛЬНІ ВІКНА */
-    .modal {
-        position: fixed;
-        inset: 0;
-        background: rgba(0,0,0,0.85);
-        display: none;
-        justify-content: center;
-        align-items: center;
-        z-index: 1000;
-        padding: 20px;
-    }
-    .modal-content {
-        background: #161616;
-        padding: 30px;
-        max-width: 500px;
-        width: 100%;
-        border-radius: 8px;
-        position: relative;
-        border: 1px solid #444;
-    }
-    .close { position: absolute; top: 15px; right: 20px; font-size: 30px; cursor: pointer; }
-    .modal input { width: 100%; padding: 12px; margin: 10px 0; background: #222; border: 1px solid #444; color: white; }
+.cars-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
 
-    footer { text-align: center; padding: 40px; color: #555; background: #050505; }
+.car-card{
+background:#111;border:1px solid #333;
+cursor:pointer;transition:0.3s;
+}
+.car-card:hover{transform:scale(1.03);}
+.car-card img{width:100%;height:180px;object-fit:cover;}
+
+.car-info{padding:15px;}
+
+.modal{
+display:none;position:fixed;
+inset:0;background:rgba(0,0,0,0.9);
+justify-content:center;align-items:center;
+}
+
+.modal-content{
+background:#161616;padding:25px;
+width:90%;max-width:500px;
+border:1px solid #444;
+}
+
+.close{float:right;cursor:pointer;font-size:25px;}
 </style>
 </head>
+
 <body>
 
 <nav>
-    <div class="logo">MERCEDES</div>
-    <ul>
-        <li><a href="#">Головна</a></li>
-        <li><a href="#catalog">Авто</a></li>
-        <li><a href="#about">Про нас</a></li>
-        <li><a href="#contacts">Контакти</a></li>
-    </ul>
+<div><b>MERCEDES</b></div>
+<ul>
+<li><a href="#">Головна</a></li>
+<li><a href="#catalog">Авто</a></li>
+</ul>
 </nav>
 
 <section class="hero">
-    <h1>The Best or Nothing</h1>
-    <p style="margin-bottom: 30px; color: #aaa;">Преміальні автомобілі нового покоління.</p>
-    <a href="#catalog" class="btn">Дивитись авто</a>
+<h1>The Best or Nothing</h1>
+<p style="color:#aaa">Преміальні автомобілі</p>
+<a class="btn" href="#catalog">Дивитись</a>
 </section>
 
-<!-- КАТАЛОГ АВТО -->
-<section class="section" id="catalog">
-    <h2 class="section-title">Популярні моделі</h2>
-    <div class="cars-grid">
-        
-        <div class="car-card" onclick="openModal('Mercedes-AMG GT', '$185 000', 'Спортивний характер та максимальна потужність на треку.')">
-            <img src="https://unsplash.com">
-            <div class="car-info">
-                <h3>Mercedes-AMG GT</h3>
-                <p class="price">$185 000</p>
-            </div>
-        </div>
+<section id="catalog" class="section">
+<h2>Каталог</h2><br>
 
-        <div class="car-card" onclick="openModal('Mercedes S-Class', '$142 000', 'Еталон комфорту та безпеки серед преміальних седанів.')">
-            <img src="https://unsplash.com">
-            <div class="car-info">
-                <h3>Mercedes S-Class</h3>
-                <p class="price">$142 000</p>
-            </div>
-        </div>
+<div class="cars-grid">
 
-        <div class="car-card" onclick="openModal('Mercedes G-Class', '$220 000', 'Легендарний позашляховик із безкомпромісним характером.')">
-            <img src="https://unsplash.com">
-            <div class="car-info">
-                <h3>Mercedes G-Class</h3>
-                <p class="price">$220 000</p>
-            </div>
-        </div>
+<div class="car-card" onclick="openModal('AMG GT','$185 000','Спорт + V8 бітурбо')">
+<img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=800">
+<div class="car-info">
+<h3>AMG GT</h3>
+<p>$185 000</p>
+</div>
+</div>
 
-        <div class="car-card" onclick="openModal('Mercedes C-Class Coupe', '$65 000', 'Динамічне та стильне міське купе.')">
-            <img src="https://unsplash.com">
-            <div class="car-info">
-                <h3>Mercedes C-Class Coupe</h3>
-                <p class="price">$65 000</p>
-            </div>
-        </div>
+<div class="car-card" onclick="openModal('S-Class','$142 000','Комфорт і розкіш')">
+<img src="https://images.unsplash.com/photo-1619767886558-efdc259cde1a?auto=format&fit=crop&w=800">
+<div class="car-info">
+<h3>S-Class</h3>
+<p>$142 000</p>
+</div>
+</div>
 
-        <div class="car-card" onclick="openModal('Mercedes EQS', '$115 000', 'Інноваційний повністю електричний флагман.')">
-            <img src="https://unsplash.com">
-            <div class="car-info">
-                <h3>Mercedes EQS</h3>
-                <p class="price">$115 000</p>
-            </div>
-        </div>
-
-        <div class="car-card" onclick="openModal('Mercedes GLE Coupe', '$98 000', 'Ідеальне поєднання кросовера та витонченого купе.')">
-            <img src="https://unsplash.com">
-            <div class="car-info">
-                <h3>Mercedes GLE Coupe</h3>
-                <p class="price">$98 000</p>
-            </div>
-        </div>
-
-    </div>
+</div>
 </section>
 
-<!-- ПРО НАС -->
-<section class="section" id="about" style="background: #0a0a0a;">
-    <h2 class="section-title">Про Нас</h2>
-    <div class="text-block">
-        <p style="margin-bottom: 20px;">Ласкаво просимо до нашого преміального шоуруму Mercedes-Benz. Ми пропонуємо повний спектр послуг із продажу, індивідуального замовлення та обслуговування автомобілів легендарного німецького бренду.</p>
-        <p>Наша мета — забезпечити бездоганний сервіс найвищого рівня для кожного клієнта. Обираючи нас, ви отримуєте офіційну гарантію, супровід персонального менеджера та доступ до лімітованих серій автомобілів.</p>
-    </div>
-</section>
+<!-- MODAL -->
+<div class="modal" id="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal()">×</span>
+<h2 id="title"></h2>
+<p id="price"></p>
+<p id="desc"></p>
 
-<!-- КОНТАКТИ -->
-<section class="section" id="contacts">
-    <h2 class="section-title">Контакти</h2>
-    <div class="contacts-grid">
-        <div class="contact-box">
-            <h4>Адреса Шоуруму</h4>
-            <p style="color: #aaa; margin-top: 5px;">Київ, вул. Велика Васильківська, 100</p>
-        </div>
-        <div class="contact-box">
-            <h4>Телефон</h4>
-            <p style="color: #aaa; margin-top: 5px;">+380 (44) 555-32-32</p>
-        </div>
-        <div class="contact-box">
-            <h4>Графік роботи</h4>
-            <p style="color: #aaa; margin-top: 5px;">Пн - Сб: 09:00 - 20:00</p>
-        </div>
-    </div>
-</section>
+<br>
 
-<footer>
-    © 2026 Mercedes Luxury Showroom
-</footer>
+<h3>Бронювання</h3>
+<form onsubmit="event.preventDefault(); alert('Заброньовано!'); closeModal();">
+<input placeholder="Card" maxlength="16" required>
+<br><br>
+<input placeholder="CVV" maxlength="3" required>
+<br><br>
+<button class="btn">Pay</button>
+</form>
 
-<!-- МОДАЛЬНЕ ВІКНО: ДЕТАЛІ + ОПЛАТА -->
-<div class="modal" id="carModal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <h2 id="m-title" style="margin-bottom: 10px;"></h2>
-        <div id="m-price" style="font-size: 20px; font-weight: bold; color: #fff; margin-bottom: 15px;"></div>
-        <p id="m-desc" style="color: #bbb; margin-bottom: 25px; font-size: 15px;"></p>
-        
-        <hr style="border-color: #333; margin-bottom: 20px;">
-        
-        <h3 style="font-size: 18px; margin-bottom: 10px;">Форма онлайн-бронювання</h3>
-        <p style="font-size: 12px; color: #888; margin-bottom: 10px;">Для фіксації замовлення внесіть гарантійний платіж $5 000</p>
-        
-        <form onsubmit="event.preventDefault(); alert('Оплата успішна! Автомобіль заброньовано.'); closeModal();">
-            <input type="text" placeholder="Номер картки (16 цифр)" maxlength="16" required>
-            <div style="display: flex; gap: 10px;">
-                <input type="text" placeholder="ММ/РР" maxlength="5" required>
-                <input type="password" placeholder="CVV" maxlength="3" required>
-            </div>
-            <button type="submit" class="btn" style="width: 100%; margin-top: 10px;">Оплатити $5 000</button>
-        </form>
-    </div>
+</div>
 </div>
 
 <script>
-    function openModal(title, price, desc) {
-        document.getElementById('m-title').innerText = title;
-        document.getElementById('m-price').innerText = price;
-        document.getElementById('m-desc').innerText = desc;
-        document.getElementById('carModal').style.display = 'flex';
-    }
+function openModal(t,p,d){
+document.getElementById("title").innerText=t;
+document.getElementById("price").innerText=p;
+document.getElementById("desc").innerText=d;
+document.getElementById("modal").style.display="flex";
+}
 
-    function closeModal() {
-        document.getElementById('carModal').style.display = 'none';
-    }
+function closeModal(){
+document.getElementById("modal").style.display="none";
+}
 
-    window.onclick = function(event) {
-        let modal = document.getElementById('carModal');
-        if (event.target == modal) {
-            modal.style.display = 'none';
-        }
-    }
+window.onclick=(e)=>{
+if(e.target.id==="modal") closeModal();
+}
 </script>
 
 </body>
